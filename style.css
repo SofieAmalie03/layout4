@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  display: grid;
+  gap: 1rem;
+}
+
+/* --- Desktop layout --- */
+@media (min-width: 800px) {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr; /* venstre - midten - højre */
+    align-items: center;
+  }
+}
+
+/* --- Mobil layout --- */
+@media (max-width: 799px) {
+  .container {
+    grid-template-columns: 1fr 1fr; /* venstre tekst og billede side om side */
+    grid-template-rows: auto auto; /* så højre tekst kan ligge under */
+  }
+
+  .left {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .middle {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .right {
+    grid-column: 1 / span 2; /* fylder hele bredden */
+    grid-row: 2;
+  }
+}
